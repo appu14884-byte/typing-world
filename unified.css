@@ -1,0 +1,419 @@
+/* Typing World shared design system. Loaded last on every page so shared components stay consistent. */
+:root {
+  --color-primary: #a994ff;
+  --color-primary-contrast: #171329;
+  --color-bg: #10121a;
+  --color-surface: #171a24;
+  --color-surface-raised: #202432;
+  --color-text: #f3f4fa;
+  --color-muted: #a1a8ba;
+  --color-border: #2c3140;
+  --color-accent: #76d9d1;
+  --color-warning: #f3c879;
+  --color-danger: #ff7f91;
+  --font-heading: 'Manrope', 'Noto Sans Kannada', 'Noto Sans Devanagari', sans-serif;
+  --font-body: 'DM Sans', 'Noto Sans Kannada', 'Noto Sans Devanagari', sans-serif;
+  --radius: 16px;
+  --radius-xs: 9px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+  --radius-round: 50%;
+  --shadow: 0 18px 50px rgb(0 0 0 / 22%);
+}
+
+:root[data-theme='light'] {
+  --color-primary: #6753bd;
+  --color-primary-contrast: #ffffff;
+  --color-bg: #f6f7fb;
+  --color-surface: #ffffff;
+  --color-surface-raised: #eff0f7;
+  --color-text: #202435;
+  --color-muted: #697186;
+  --color-border: #e3e6ef;
+  --color-accent: #167f78;
+  --color-warning: #93651b;
+  --color-danger: #bd4d63;
+  --shadow: 0 18px 45px rgb(30 39 70 / 8%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-bg);
+  scrollbar-color: var(--color-border) var(--color-bg);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+.brand,
+.stat-value,
+.metric strong,
+.game-word {
+  font-family: var(--font-heading);
+}
+
+/* Shared, compact navigation across homepage and app pages. */
+.topbar,
+.home-topbar {
+  border-bottom: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-bg) 94%, transparent);
+  box-shadow: none;
+  backdrop-filter: blur(12px);
+}
+
+.topbar-inner,
+.home-topbar-inner {
+  width: min(100%, 1280px);
+  min-height: 66px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.brand {
+  gap: 10px;
+  color: var(--color-text);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -.04em;
+}
+
+.brand-mark {
+  width: 35px;
+  height: 35px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: var(--radius-xs);
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+.nav-links {
+  gap: 4px;
+}
+
+.nav-link {
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-xs);
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 600;
+  transition: color .16s ease, background .16s ease, border-color .16s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  border-color: var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.nav-link.active {
+  color: var(--color-primary);
+}
+
+.nav-actions {
+  gap: 8px;
+}
+
+.icon-button,
+.menu-button {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  background: var(--color-surface);
+  color: var(--color-muted);
+}
+
+.home-streak,
+.home-avatar,
+.home-settings {
+  border-color: var(--color-border);
+  border-radius: var(--radius-xs);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+/* Shared page rhythm and heading scale. */
+.page {
+  width: min(100%, 1180px);
+  padding: 38px 24px 96px;
+}
+
+.page>h1,
+.settings-title {
+  font-size: clamp(34px, 4.6vw, 52px);
+  font-weight: 800;
+  letter-spacing: -.055em;
+  line-height: 1.08;
+}
+
+.page .lead {
+  max-width: 660px;
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.section-head {
+  margin: 34px 0 15px;
+}
+
+.section-head h2,
+.home-section-heading h2 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -.045em;
+}
+
+/* Shared surfaces. Avoid page-specific card treatments competing with one another. */
+.card,
+.home-feature-card,
+.home-world-card,
+.home-journey-section,
+.home-analytics-card,
+.home-final-cta,
+.home-typing-card,
+.settings-section,
+.settings-note {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  box-shadow: none;
+}
+
+.card-pad {
+  padding: 22px;
+}
+
+.home-feature-card,
+.home-world-card {
+  color: var(--color-text);
+}
+
+.home-typing-card {
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.home-journey-section,
+.home-final-cta {
+  background: var(--color-surface);
+}
+
+.settings-section {
+  padding: 22px;
+}
+
+/* One button family for links and controls, retaining existing variants. */
+.btn,
+.home-button {
+  min-height: 44px;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-body);
+  font-weight: 700;
+  transition: transform .16s ease, background .16s ease, border-color .16s ease, color .16s ease;
+}
+
+.btn:hover,
+.home-button:hover {
+  transform: translateY(-1px);
+}
+
+.btn.secondary,
+.btn.ghost,
+.home-button-secondary {
+  border-color: var(--color-border);
+  background: var(--color-surface-raised);
+  color: var(--color-text);
+}
+
+.home-button-primary {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+/* Shared stat, badge, input, and progress treatments. */
+.stat-card,
+.metric,
+.game-stat {
+  border-color: var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  box-shadow: none;
+}
+
+.pill,
+.level-badge {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-raised);
+}
+
+.progress-track {
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-raised);
+}
+
+.progress-fill {
+  border-radius: inherit;
+  background: var(--color-primary);
+}
+
+.select,
+.typing-input,
+.game-input {
+  border-color: var(--color-border);
+  border-radius: var(--radius-xs);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.typing-input:focus,
+.game-input:focus,
+.select:focus {
+  border-color: var(--color-primary);
+}
+
+/* Unified focus and motion behavior. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.toast {
+  border-color: var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.mobile-nav {
+  border-color: var(--color-border);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-surface) 96%, transparent);
+  box-shadow: var(--shadow);
+}
+
+.mobile-nav a {
+  color: var(--color-muted);
+}
+
+.mobile-nav a.active {
+  color: var(--color-primary);
+}
+
+/* Match the homepage to the shared app canvas without removing its composition. */
+.home-page {
+  background: var(--color-bg);
+}
+
+.home-main {
+  width: min(100%, 1180px);
+}
+
+.home-value-strip {
+  border-color: var(--color-border);
+}
+
+.home-world-card.is-locked {
+  opacity: .58;
+}
+
+.home-world-card.is-available:hover,
+.home-feature-card:hover,
+.card:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 48%, var(--color-border));
+}
+
+/* Subtle and consistent page entrance; reduced-motion setting always wins. */
+@media (prefers-reduced-motion: no-preference) {
+  .page {
+    animation: shared-page-enter .22s ease both;
+  }
+
+  @keyframes shared-page-enter {
+    from {
+      opacity: .92;
+      transform: translateY(3px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 850px) {
+
+  .topbar-inner,
+  .home-topbar-inner {
+    min-height: 62px;
+    padding-inline: 16px;
+  }
+
+  .page {
+    padding: 30px 18px 104px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .topbar-inner,
+  .home-topbar-inner {
+    padding-inline: 13px;
+  }
+
+  .page {
+    padding: 24px 15px 102px;
+  }
+
+  .card-pad,
+  .settings-section {
+    padding: 17px;
+  }
+
+  .mobile-nav {
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
