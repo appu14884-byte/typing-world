@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10121a">
+  <title>Settings — Typing World</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/redesign.css">
+  <link rel="stylesheet" href="/settings-ui.css">
+  <link rel="stylesheet" href="/unified.css">
+  <link rel="stylesheet" href="/global-system.css">
+</head>
+
+<body data-page="settings">
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/"><span class="brand-mark">⌨</span> Typing World</a>
+        <nav class="nav-links" id="mainNav" aria-label="Main navigation">
+          <a class="nav-link" href="/">⌂ Home</a>
+          <a class="nav-link" href="/practice">⌨ Practice</a>
+          <a class="nav-link" href="/games">🎮 Games</a>
+          <a class="nav-link" href="/worlds">🌎 Worlds</a>
+          <a class="nav-link" href="/leaderboard">🏆 Leaderboard</a>
+          <a class="nav-link" href="/progress">📊 Progress</a>
+          <a class="nav-link" href="/profile">👤 Profile</a>
+          <a class="nav-link active" href="/settings" aria-current="page">⚙ Settings</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle color theme">◐</button>
+          <button class="menu-button" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+        </div>
+      </div>
+    </header>
+    <main class="page settings-page">
+      <span class="eyebrow">Make it yours</span>
+      <h1 class="settings-title">Settings</h1>
+      <p class="lead">Personalize your practice. Your preferences are saved on this device.</p>
+
+      <section class="settings-section" aria-labelledby="appearance-title">
+        <div class="settings-section-heading">
+          <span class="settings-icon" aria-hidden="true">◐</span>
+          <div>
+            <h2 id="appearance-title">Appearance</h2>
+            <p>Choose a theme that feels comfortable.</p>
+          </div>
+        </div>
+        <label class="settings-row" for="themeChoice">
+          <span><strong>Color theme</strong><small>Applies across Typing World</small></span>
+          <select class="select" id="themeChoice">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="system">System</option>
+          </select>
+        </label>
+        <label class="settings-row" for="motionChoice">
+          <span><strong>Reduced motion</strong><small>Limit decorative movement and transitions</small></span>
+          <input class="settings-switch" type="checkbox" id="motionChoice">
+        </label>
+      </section>
+
+      <section class="settings-section" aria-labelledby="practice-settings-title">
+        <div class="settings-section-heading">
+          <span class="settings-icon" aria-hidden="true">⌨</span>
+          <div>
+            <h2 id="practice-settings-title">Practice</h2>
+            <p>Set your preferred defaults for typing sessions.</p>
+          </div>
+        </div>
+        <label class="settings-row" for="languageChoice">
+          <span><strong>Practice language</strong><small>Choose the language used for typing passages</small></span>
+          <select class="select" id="languageChoice">
+            <option>English</option>
+            <option>Kannada</option>
+            <option>Hindi</option>
+          </select>
+        </label>
+        <label class="settings-row" for="durationChoice">
+          <span><strong>Default test length</strong><small>Choose the starting duration for a new test</small></span>
+          <select class="select" id="durationChoice">
+            <option value="15">15 seconds</option>
+            <option value="30">30 seconds</option>
+            <option value="60">60 seconds</option>
+            <option value="120">120 seconds</option>
+          </select>
+        </label>
+        <label class="settings-row" for="cursorChoice">
+          <span><strong>Typing cursor</strong><small>Choose how the current character is marked</small></span>
+          <select class="select" id="cursorChoice">
+            <option value="underline">Underline</option>
+            <option value="block">Outline</option>
+          </select>
+        </label>
+        <label class="settings-row" for="soundChoice">
+          <span><strong>Typing sounds</strong><small>Play a subtle sound while typing in practice and games</small></span>
+          <input class="settings-switch" type="checkbox" id="soundChoice">
+        </label>
+      </section>
+
+      <section class="settings-note" aria-live="polite">
+        <span aria-hidden="true">🔒</span>
+        <p><strong>Your progress stays on this device.</strong><br>These settings use local storage. Account sync and cloud backups need a configured backend.</p>
+      </section>
+      <div class="settings-footer">
+        <a class="btn secondary" href="/profile">Profile</a>
+        <a class="btn" href="/practice">Start typing</a>
+      </div>
+    </main>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="/"><span>⌂</span>Home</a>
+      <a href="/practice"><span>⌨</span>Practice</a>
+      <a href="/games"><span>🎮</span>Games</a>
+      <a href="/progress"><span>📊</span>Progress</a>
+      <a href="/profile"><span>👤</span>Profile</a>
+    </nav>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/supabase-config.js"></script>
+  <script src="/supabase-client.js"></script>
+  <script src="/app.js"></script>
+  <script src="/settings.js"></script>
+  <script src="/icon-system.js"></script>
+</body>
+
+</html>

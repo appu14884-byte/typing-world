@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leaderboard — Typing World</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/redesign.css">
+  <link rel="stylesheet" href="/settings-ui.css">
+  <link rel="stylesheet" href="/unified.css">
+  <link rel="stylesheet" href="/global-system.css">
+</head>
+
+<body data-page="leaderboard">
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-inner"><a class="brand" href="/"><span class="brand-mark">⌨</span> Typing World</a>
+        <nav class="nav-links" id="mainNav"><a class="nav-link" href="/">🏠 Home</a><a class="nav-link" href="/practice">⌨️ Practice</a><a class="nav-link" href="/games">🎮 Games</a><a class="nav-link" href="/worlds">🌎 Worlds</a><a class="nav-link active" href="/leaderboard">🏆 Leaderboard</a><a class="nav-link" href="/progress">📊 Progress</a><a class="nav-link" href="/profile">👤 Profile</a></nav>
+        <div class="nav-actions"><button class="icon-button" id="themeToggle" aria-label="Toggle color theme">☀️</button><button class="menu-button" id="menuToggle" aria-label="Open navigation">☰</button></div>
+      </div>
+    </header>
+    <main class="page">
+      <span class="eyebrow">🏆 A little friendly competition</span>
+      <h1 style="font-size:clamp(35px,5vw,52px);margin-top:9px">The typing hall of fame.</h1>
+      <p class="lead">A demo leaderboard to keep the inspiration flowing. Your own best is saved right here on this device.</p>
+      <section class="stats-grid" style="margin-top:25px">
+        <div class="card stat-card"><span class="stat-icon">⚡</span>
+          <div class="stat-label">Your best speed</div>
+          <div class="stat-value"><span data-best-wpm>0</span> <span class="small muted">WPM</span></div>
+        </div>
+        <div class="card stat-card"><span class="stat-icon">⭐</span>
+          <div class="stat-label">Your total XP</div>
+          <div class="stat-value"><span data-xp>0</span></div>
+        </div>
+        <div class="card stat-card"><span class="stat-icon">🌱</span>
+          <div class="stat-label">Your level</div>
+          <div class="stat-value" style="font-size:19px" data-level-name>Level 1 — Beginner</div>
+        </div>
+        <div class="card stat-card"><span class="stat-icon">🎯</span>
+          <div class="stat-label">Your accuracy record</div>
+          <div class="stat-value"><span data-best-accuracy>0%</span></div>
+        </div>
+      </section>
+      <section class="section-head">
+        <div>
+          <h2>Top typists</h2>
+          <p>Demo players for this first edition of Typing World.</p>
+        </div>
+        <div class="segmented"><button class="selected" data-filter="Daily">Daily</button><button data-filter="Weekly">Weekly</button><button data-filter="Monthly">Monthly</button><button data-filter="All Time">All Time</button></div>
+      </section>
+      <section class="card card-pad table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th>WPM</th>
+              <th>Accuracy</th>
+              <th>Score</th>
+              <th>Level</th>
+            </tr>
+          </thead>
+          <tbody id="leaderRows"></tbody>
+        </table>
+      </section>
+      <p class="small muted" style="margin-top:15px">Leaderboard names and scores are sample data. Personal progress stays private in your browser.</p>
+    </main>
+    <nav class="mobile-nav"><a href="/"><span>🏠</span>Home</a><a href="/practice"><span>⌨️</span>Practice</a><a href="/games"><span>🎮</span>Games</a><a href="/progress"><span>📊</span>Progress</a><a href="/profile"><span>👤</span>Profile</a></nav>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/supabase-config.js"></script>
+  <script src="/supabase-client.js"></script>
+  <script src="/app.js"></script>
+  <script src="/settings.js"></script>
+  <script src="/icon-system.js"></script>
+</body>
+
+</html>

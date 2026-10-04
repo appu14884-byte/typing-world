@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Profile — Typing World</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/redesign.css">
+  <link rel="stylesheet" href="/settings-ui.css">
+  <link rel="stylesheet" href="/unified.css">
+  <link rel="stylesheet" href="/global-system.css">
+</head>
+
+<body data-page="profile">
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-inner"><a class="brand" href="/"><span class="brand-mark">⌨</span> Typing World</a>
+        <nav class="nav-links" id="mainNav"><a class="nav-link" href="/">🏠 Home</a><a class="nav-link" href="/practice">⌨️ Practice</a><a class="nav-link" href="/games">🎮 Games</a><a class="nav-link" href="/worlds">🌎 Worlds</a><a class="nav-link" href="/leaderboard">🏆 Leaderboard</a><a class="nav-link" href="/progress">📊 Progress</a><a class="nav-link active" href="/profile">👤 Profile</a></nav>
+        <div class="nav-actions"><button class="icon-button" id="themeToggle" aria-label="Toggle color theme">☀️</button><button class="menu-button" id="menuToggle" aria-label="Open navigation">☰</button></div>
+      </div>
+    </header>
+    <main class="page">
+      <span class="eyebrow">👤 This is your corner of the universe</span>
+      <h1 style="font-size:clamp(35px,5vw,52px);margin-top:9px">Your player profile.</h1>
+      <section class="card profile-hero" style="margin-top:22px">
+        <div class="profile-avatar">🧑‍🚀</div>
+        <div style="flex:1">
+          <div class="small muted">PLAYER</div>
+          <h1 data-username>Typing Explorer</h1>
+          <div class="control-row"><span class="level-badge" data-level-name>Level 1 — Beginner</span><span class="pill"><span data-xp>0</span> XP</span></div>
+        </div><button class="btn secondary small-btn" id="editName">✎ Edit name</button>
+      </section>
+      <section class="stats-grid" style="margin-top:17px">
+        <div class="card stat-card"><span class="stat-icon">⚡</span>
+          <div class="stat-label">Best WPM</div>
+          <div class="stat-value"><span data-best-wpm>0</span></div>
+        </div>
+        <div class="card stat-card"><span class="stat-icon">🎯</span>
+          <div class="stat-label">Best accuracy</div>
+          <div class="stat-value"><span data-best-accuracy>0%</span></div>
+        </div>
+        <div class="card stat-card"><span class="stat-icon">⌨️</span>
+          <div class="stat-label">Total tests</div>
+          <div class="stat-value" id="profileTests">0</div>
+        </div>
+        <div class="card stat-card"><span class="stat-icon">🎮</span>
+          <div class="stat-label">Games played</div>
+          <div class="stat-value" id="profileGames">0</div>
+        </div>
+      </section>
+      <section class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,350px),1fr));margin-top:18px">
+        <article class="card card-pad">
+          <div class="xp-top">
+            <div>
+              <div class="eyebrow">⭐ Level progress</div>
+              <h3 style="margin:8px 0 0" data-level-name>Level 1 — Beginner</h3>
+            </div><span class="level-badge"><span data-xp>0</span> XP</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" data-xp-progress style="width:0%"></div>
+          </div>
+          <div class="xp-foot"><span data-xp-label>0 / 300 XP</span><span>Next level</span></div>
+        </article>
+        <article class="card card-pad">
+          <div class="xp-top">
+            <div>
+              <div class="eyebrow" style="color:var(--color-warning)">🔥 Daily streak</div>
+              <h3 style="margin:8px 0 0"><span data-streak>0</span> day streak</h3>
+            </div><span style="font-size:32px">🔥</span>
+          </div>
+          <p class="small muted" style="margin:12px 0 0">A little practice each day adds up. Come back tomorrow to keep your momentum.</p>
+          <div class="streak-days" id="streakCalendar"></div>
+        </article>
+      </section>
+      <section class="section-head">
+        <div>
+          <h2>Your achievements</h2>
+          <p>Every badge marks a milestone in your typing journey.</p>
+        </div><span class="pill"><span data-xp>0</span> XP collected</span>
+      </section>
+      <section class="grid achievement-grid" id="achievementList"></section>
+      <section class="section-head">
+        <div>
+          <h2>Your preferences</h2>
+          <p>Make Typing World feel like yours.</p>
+        </div>
+      </section>
+      <section class="card card-pad">
+        <div class="language-row">
+          <div><strong>🌐 Practice language</strong>
+            <div class="small muted" style="margin-top:4px">Choose your preferred language</div>
+          </div><select class="select" id="languageSelect">
+            <option>English</option>
+            <option>Kannada</option>
+            <option>Hindi</option>
+          </select>
+        </div>
+        <div class="language-row" style="border:0">
+          <div><strong>🌗 Color theme</strong>
+            <div class="small muted" style="margin-top:4px">Switch between dark and light mode</div>
+          </div><button class="btn secondary small-btn" id="themeToggle">Toggle theme</button>
+        </div>
+      </section>
+    </main>
+    <nav class="mobile-nav"><a href="/"><span>🏠</span>Home</a><a href="/practice"><span>⌨️</span>Practice</a><a href="/games"><span>🎮</span>Games</a><a href="/progress"><span>📊</span>Progress</a><a class="active" href="/profile"><span>👤</span>Profile</a></nav>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/supabase-config.js"></script>
+  <script src="/supabase-client.js"></script>
+  <script src="/app.js"></script>
+  <script src="/settings.js"></script>
+  <script src="/icon-system.js"></script>
+</body>
+
+</html>

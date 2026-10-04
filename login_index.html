@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Log in to Typing World and continue your typing journey.">
+  <title>Log In — Typing World</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/unified.css">
+  <link rel="stylesheet" href="/global-system.css">
+  <link rel="stylesheet" href="/auth.css">
+</head>
+
+<body data-auth-page="login">
+  <main class="auth-page">
+    <div class="auth-layout">
+      <section class="auth-intro" aria-label="Typing World introduction">
+        <a class="auth-brand" href="/" aria-label="Typing World home"><span class="brand-mark">⌨</span> Typing World</a>
+        <h1>Your next great run starts here.</h1>
+        <p>Sign in to continue your typing journey. Guest practice is always available if you want to keep typing now.</p>
+        <div class="auth-visual" aria-label="Typing performance preview">
+          <div class="auth-visual-top"><span>Your practice rhythm</span><span aria-hidden="true">●</span></div>
+          <div class="auth-keyboard" aria-hidden="true">
+            <div class="auth-key-row"><span>Q</span><span>W</span><span>E</span><span>R</span><span>T</span><span>Y</span><span>U</span><span>I</span><span>O</span><span>P</span></div>
+            <div class="auth-key-row"><span>A</span><span>S</span><span>D</span><span>F</span><span>G</span><span>H</span><span>J</span><span>K</span><span>L</span></div>
+            <div class="auth-key-row"><span>⇧</span><span>Z</span><span>X</span><span>C</span><span>V</span><span>B</span><span>N</span><span>M</span><span>↵</span></div>
+          </div>
+          <div class="auth-visual-stats">
+            <div><span>BEST WPM</span><strong><span class="tw-icon-color-blue">52</span></strong></div>
+            <div><span>ACCURACY</span><strong>96%</strong></div>
+            <div><span>STREAK</span><strong>Keep going</strong></div>
+          </div>
+        </div>
+      </section>
+      <section class="auth-card" aria-labelledby="login-title">
+        <h2 id="login-title">Welcome back</h2>
+        <p>Continue your Typing World journey.</p>
+        <form class="auth-form" data-auth-form novalidate>
+          <div class="auth-field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+          <div class="auth-field"><label for="password">Password</label>
+            <div class="auth-password-wrap"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required><button class="auth-password-toggle" type="button" data-password-toggle="password" aria-label="Show password" aria-pressed="false">◉</button></div>
+          </div>
+          <div class="auth-links-row"><span>Secure account access</span><a href="/forgot-password">Forgot password?</a></div>
+          <p class="auth-message" id="authMessage" aria-live="polite"></p>
+          <button class="auth-submit" id="authSubmit" type="submit">Log In <span aria-hidden="true">→</span></button>
+          <div class="auth-divider">Or</div>
+          <button class="auth-google" id="loginBtn" type="button" disabled><span aria-hidden="true">G</span> Continue with Google <span class="small">(not configured)</span></button>
+        </form>
+        <p class="auth-switch">New to Typing World? <a href="/signup">Create an account</a></p>
+        <a class="auth-back-link" href="/practice">Continue as guest</a>
+      </section>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/supabase-config.js"></script>
+  <script src="/supabase-client.js"></script>
+  <!-- Load Firebase SDK, then project config, then the adapter and auth UI (in order). -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="/firebase-config.js"></script>
+  <script src="/firebase-client.js"></script>
+  <script src="/auth.js"></script>
+  <script src="/icon-system.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Progress — Typing World</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/redesign.css">
+  <link rel="stylesheet" href="/settings-ui.css">
+  <link rel="stylesheet" href="/unified.css">
+  <link rel="stylesheet" href="/global-system.css">
+</head>
+
+<body data-page="progress">
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-inner"><a class="brand" href="/"><span class="brand-mark">⌨</span> Typing World</a>
+        <nav class="nav-links" id="mainNav"><a class="nav-link" href="/">🏠 Home</a><a class="nav-link" href="/practice">⌨️ Practice</a><a class="nav-link" href="/games">🎮 Games</a><a class="nav-link" href="/worlds">🌎 Worlds</a><a class="nav-link" href="/leaderboard">🏆 Leaderboard</a><a class="nav-link active" href="/progress">📊 Progress</a><a class="nav-link" href="/profile">👤 Profile</a></nav>
+        <div class="nav-actions"><button class="icon-button" id="themeToggle" aria-label="Toggle color theme">☀️</button><button class="menu-button" id="menuToggle" aria-label="Open navigation">☰</button></div>
+      </div>
+    </header>
+    <main class="page">
+      <span class="eyebrow">📊 Every keystroke counts</span>
+      <h1 style="font-size:clamp(35px,5vw,52px);margin-top:9px">Look how far you've come.</h1>
+      <p class="lead">Your practice history is stored on this device. Keep showing up and your chart will tell the story.</p>
+      <section class="stats-grid" style="margin-top:25px">
+        <div class="card stat-card"><span class="stat-icon">📈</span>
+          <div class="stat-label">Average WPM</div>
+          <div class="stat-value" id="averageWpm">0</div>
+        </div>
+        <div class="card stat-card"><span class="stat-icon">⚡</span>
+          <div class="stat-label">Best WPM</div>
+          <div class="stat-value"><span data-best-wpm>0</span></div>
+        </div>
+        <div class="card stat-card"><span class="stat-icon">🎯</span>
+          <div class="stat-label">Average accuracy</div>
+          <div class="stat-value" id="averageAccuracy">0%</div>
+        </div>
+        <div class="card stat-card"><span class="stat-icon">🌟</span>
+          <div class="stat-label">Best accuracy</div>
+          <div class="stat-value"><span data-best-accuracy>0%</span></div>
+        </div>
+      </section>
+      <section class="stats-grid" style="margin-top:14px">
+        <div class="card stat-card">
+          <div class="stat-label">Tests completed</div>
+          <div class="stat-value"><span data-tests>0</span></div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-label">Games played</div>
+          <div class="stat-value"><span data-games>0</span></div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-label">Total XP</div>
+          <div class="stat-value"><span data-xp>0</span></div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-label">Practice streak 🔥</div>
+          <div class="stat-value"><span data-streak>0</span></div>
+        </div>
+      </section>
+      <section class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));margin-top:22px">
+        <article class="card card-pad">
+          <div class="eyebrow">Speed over time</div>
+          <h3 style="margin-top:7px">WPM improvement</h3>
+          <div class="bar-chart"><svg id="wpmChart" viewBox="0 0 100 100" preserveAspectRatio="none" aria-label="WPM history chart"></svg></div>
+        </article>
+        <article class="card card-pad">
+          <div class="eyebrow">Steady hands</div>
+          <h3 style="margin-top:7px">Accuracy trend</h3>
+          <div class="bar-chart"><svg id="accuracyChart" viewBox="0 0 100 100" preserveAspectRatio="none" aria-label="Accuracy history chart"></svg></div>
+        </article>
+      </section>
+      <section class="card card-pad" style="margin-top:18px">
+        <div class="eyebrow">Practice rhythm</div>
+        <h3 style="margin-top:7px">Tests completed</h3>
+        <div id="testsChart" style="height:120px;display:flex;align-items:flex-end;gap:9px;margin-top:16px" aria-label="Recent test durations chart"></div>
+      </section>
+      <section class="section-head">
+        <div>
+          <h2>Recent tests</h2>
+          <p>Your latest practice runs, all in one place.</p>
+        </div><a class="btn small-btn" href="/practice">Practice again →</a>
+      </section>
+      <section class="card card-pad table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Speed</th>
+              <th>Accuracy</th>
+              <th>Time</th>
+              <th>Characters</th>
+            </tr>
+          </thead>
+          <tbody id="historyRows"></tbody>
+        </table>
+      </section>
+    </main>
+    <nav class="mobile-nav"><a href="/"><span>🏠</span>Home</a><a href="/practice"><span>⌨️</span>Practice</a><a href="/games"><span>🎮</span>Games</a><a class="active" href="/progress"><span>📊</span>Progress</a><a href="/profile"><span>👤</span>Profile</a></nav>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/supabase-config.js"></script>
+  <script src="/supabase-client.js"></script>
+  <script src="/app.js"></script>
+  <script src="/settings.js"></script>
+  <script src="/icon-system.js"></script>
+</body>
+
+</html>

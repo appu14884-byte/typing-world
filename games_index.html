@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Typing Games — Typing World</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/redesign.css">
+  <link rel="stylesheet" href="/settings-ui.css">
+  <link rel="stylesheet" href="/unified.css">
+  <link rel="stylesheet" href="/global-system.css">
+</head>
+
+<body data-page="games">
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-inner"><a class="brand" href="/"><span class="brand-mark">⌨</span> Typing World</a>
+        <nav class="nav-links" id="mainNav"><a class="nav-link" href="/">🏠 Home</a><a class="nav-link" href="/practice">⌨️ Practice</a><a class="nav-link active" href="/games">🎮 Games</a><a class="nav-link" href="/worlds">🌎 Worlds</a><a class="nav-link" href="/leaderboard">🏆 Leaderboard</a><a class="nav-link" href="/progress">📊 Progress</a><a class="nav-link" href="/profile">👤 Profile</a></nav>
+        <div class="nav-actions"><button class="icon-button" id="themeToggle" aria-label="Toggle color theme">☀️</button><button class="menu-button" id="menuToggle" aria-label="Open navigation">☰</button></div>
+      </div>
+    </header>
+    <main class="page">
+      <span class="eyebrow">🎮 Ready, set, type!</span>
+      <h1 style="font-size:clamp(35px,5vw,52px);margin-top:9px">Play your way to faster.</h1>
+      <p class="lead">Quick fingers, cool head. Catch a combo and turn your typing practice into a game.</p>
+      <div class="section-head">
+        <div>
+          <h2>⚡ Word Rush</h2>
+          <p>Type the word before the clock runs out. Keep the streak alive!</p>
+        </div><span class="pill">+ XP on every run</span>
+      </div>
+      <div class="game-layout">
+        <section class="card game-stage">
+          <span class="pill" id="gameMessage">Press play to start your 45-second run.</span>
+          <div class="game-word" id="rushWord">ready?</div>
+          <input class="game-input" id="rushInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the word…" disabled aria-label="Type the displayed word">
+          <button class="btn" id="startRush" style="margin-top:20px">▶ Start Word Rush</button>
+        </section>
+        <aside class="card card-pad">
+          <div class="small muted" style="margin-bottom:14px">YOUR RUN</div>
+          <div class="game-stat-grid">
+            <div class="game-stat"><strong id="gameScore">0</strong><span>Score</span></div>
+            <div class="game-stat"><strong id="gameTime">45</strong><span>Seconds</span></div>
+            <div class="game-stat"><strong id="gameLives">3</strong><span>Lives</span></div>
+            <div class="game-stat"><strong id="gameCombo">0</strong><span>Combo</span></div>
+            <div class="game-stat" style="grid-column:1/-1"><strong id="gameLevel">1</strong><span>Level</span></div>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" data-xp-progress style="width:0%"></div>
+          </div>
+          <div class="xp-foot"><span data-level-name>Level 1 — Beginner</span><span data-xp-label>0 / 300 XP</span></div>
+        </aside>
+      </div>
+      <div id="fallingGameMount"></div>
+      <section class="section-head">
+        <div>
+          <h2>More ways to play</h2>
+          <p>Your next adventure is just around the corner.</p>
+        </div>
+      </section>
+      <section class="grid feature-grid">
+        <article class="card feature-card">
+          <div class="feature-icon">🌠</div>
+          <h3>Falling Words</h3>
+          <p>Words drifting down from the sky. Stay sharp and protect your score.</p>          <span class="pill">Catch falling words in Arcade Mode below</span>
+        </article><a class="card feature-card" href="/worlds">
+          <div class="feature-icon">🌎</div>
+          <h3>World challenges</h3>
+          <p>Explore themed vocabulary and unlock new places as you improve.</p><span class="small" style="color:var(--color-primary);font-weight:800">Explore worlds →</span>
+        </a><a class="card feature-card" href="/practice">
+          <div class="feature-icon">🎯</div>
+          <h3>Beat your best</h3>
+          <p>Switch to a focused typing sprint and earn XP for your next level.</p><span class="small" style="color:var(--color-primary);font-weight:800">Start a test →</span>
+        </a>
+      </section>
+    </main>
+    <nav class="mobile-nav"><a href="/"><span>🏠</span>Home</a><a href="/practice"><span>⌨️</span>Practice</a><a class="active" href="/games"><span>🎮</span>Games</a><a href="/progress"><span>📊</span>Progress</a><a href="/profile"><span>👤</span>Profile</a></nav>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/supabase-config.js"></script>
+  <script src="/supabase-client.js"></script>
+  <script src="/app.js"></script>
+  <script src="/falling-game.js"></script>
+  <script src="/settings.js"></script>
+  <script src="/icon-system.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Typing Worlds — Typing World</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/redesign.css">
+  <link rel="stylesheet" href="/settings-ui.css">
+  <link rel="stylesheet" href="/unified.css">
+  <link rel="stylesheet" href="/global-system.css">
+</head>
+
+<body data-page="worlds">
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="topbar-inner"><a class="brand" href="/"><span class="brand-mark">⌨</span> Typing World</a>
+        <nav class="nav-links" id="mainNav"><a class="nav-link" href="/">🏠 Home</a><a class="nav-link" href="/practice">⌨️ Practice</a><a class="nav-link" href="/games">🎮 Games</a><a class="nav-link active" href="/worlds">🌎 Worlds</a><a class="nav-link" href="/leaderboard">🏆 Leaderboard</a><a class="nav-link" href="/progress">📊 Progress</a><a class="nav-link" href="/profile">👤 Profile</a></nav>
+        <div class="nav-actions"><button class="icon-button" id="themeToggle" aria-label="Toggle color theme">☀️</button><button class="menu-button" id="menuToggle" aria-label="Open navigation">☰</button></div>
+      </div>
+    </header>
+    <main class="page">
+      <span class="eyebrow">🌎 A universe of words</span>
+      <h1 style="font-size:clamp(35px,5vw,52px);margin-top:9px">Your typing opens new worlds.</h1>
+      <p class="lead">Every personal best brings you closer to the next horizon. Improve your WPM to unlock fresh places and new words to explore.</p>
+      <section class="card xp-panel" style="margin-top:24px">
+        <div class="xp-top">
+          <div><strong data-level-name>Level 1 — Beginner</strong>
+            <div class="small muted" style="margin-top:5px">Your adventure progress</div>
+          </div><span class="level-badge"><span data-best-wpm>0</span> best WPM</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" data-xp-progress style="width:0%"></div>
+        </div>
+        <div class="xp-foot"><span data-xp-label>0 / 300 XP</span><span><span data-xp>0</span> total XP</span></div>
+      </section>
+      <section class="section-head">
+        <div>
+          <h2>Choose your world</h2>
+          <p>Worlds unlock as your best typing speed grows.</p>
+        </div>
+      </section>
+      <section class="grid world-grid">
+        <article class="card world-card" data-world>
+          <div class="world-emoji">🌱</div>
+          <h3>Beginner World</h3>
+          <p>Gentle warm-ups, everyday words, and short phrases to help you find your flow.</p><a class="btn small-btn world-action" href="/practice">Explore world →</a>
+        </article>
+        <article class="card world-card" data-world>
+          <div class="world-emoji">🏙️</div>
+          <h3>City World</h3>
+          <p>Take on bustling streets, familiar places, and the sentences you use every day.</p><a class="btn small-btn world-action" href="/practice">Explore world →</a>
+        </article>
+        <article class="card world-card" data-world>
+          <div class="world-emoji">🚀</div>
+          <h3>Space World</h3>
+          <p>Launch into missions full of planets, satellites, stars, and cosmic vocabulary.</p><a class="btn small-btn world-action" href="/practice">Explore world →</a>
+        </article>
+        <article class="card world-card" data-world>
+          <div class="world-emoji">🏰</div>
+          <h3>Fantasy World</h3>
+          <p>Meet mythical creatures and type your way through an enchanted adventure.</p><a class="btn small-btn world-action" href="/practice">Explore world →</a>
+        </article>
+        <article class="card world-card" data-world>
+          <div class="world-emoji">🌌</div>
+          <h3>AI World</h3>
+          <p>Explore the future with clever technology and programming-inspired words.</p><a class="btn small-btn world-action" href="/practice">Explore world →</a>
+        </article>
+        <article class="card world-card" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:linear-gradient(145deg,var(--color-surface),color-mix(in srgb,var(--color-primary) 13%,var(--color-surface)))">
+          <div class="world-emoji">✨</div>
+          <h3>Your next chapter</h3>
+          <p>One practice session can be the start of something big.</p><a class="btn small-btn" href="/practice">Start a practice run →</a>
+        </article>
+      </section>
+      <section class="section-head">
+        <div>
+          <h2>Earn XP along the way</h2>
+          <p>Practice, play, and keep your daily streak going.</p>
+        </div>
+      </section>
+      <section class="grid feature-grid">
+        <article class="card feature-card">
+          <div class="feature-icon">⌨️</div>
+          <h3>Finish a test</h3>
+          <p>Every completed typing test earns XP. Accuracy gives you an extra boost.</p>
+        </article><a class="card feature-card" href="/games">
+          <div class="feature-icon">🎮</div>
+          <h3>Play a game</h3>
+          <p>Score points in Word Rush and turn your quick thinking into XP.</p>
+        </a><a class="card feature-card" href="/profile">
+          <div class="feature-icon">🔥</div>
+          <h3>Build a streak</h3>
+          <p>Come back tomorrow to grow your practice streak and collect badges.</p>
+        </a>
+      </section>
+    </main>
+    <nav class="mobile-nav"><a href="/"><span>🏠</span>Home</a><a href="/practice"><span>⌨️</span>Practice</a><a href="/games"><span>🎮</span>Games</a><a href="/progress"><span>📊</span>Progress</a><a href="/profile"><span>👤</span>Profile</a></nav>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/supabase-config.js"></script>
+  <script src="/supabase-client.js"></script>
+  <script src="/app.js"></script>
+  <script src="/settings.js"></script>
+  <script src="/icon-system.js"></script>
+</body>
+
+</html>
